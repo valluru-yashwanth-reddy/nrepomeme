@@ -32,7 +32,7 @@ jobs:
            username:  ${{ secrets.USERNAME }}
            key: ${{ secrets.KEY }}
            source: .
-           target: /home/ubuntu/MemePool
+           target: /home/ec2-user/MemePool
       - name: Run Docker Compose on EC2
         uses: appleboy/ssh-action@v1
         with:
@@ -40,7 +40,7 @@ jobs:
            username: ${{ secrets.USERNAME }}
            key: ${{ secrets.KEY }}
            script: |
-             cd /home/ubuntu/MemePool
+             cd /home/ec2-user/MemePool
              docker-compose up  -d
       
         
